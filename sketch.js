@@ -1,23 +1,28 @@
-const NP = 500; 
-let pelotas = [""];
+const NP = 500;
+let pelotas = [];
+let cuadros = [];
+
 function setup(){
-    createCanvas(windowWidth, windowHeight);
-    rectMode(CENTER);
+  createCanvas(windowWidth, windowHeight);
+  rectMode(CENTER);
 
-    for(let i = 0; i < NP ; i++ ){
-        let nuevaPelota = new Pelota();
-        pelotas[i] = nuevaPelota
-
-    }
+  for(let i = 0; i < NP; i++){
+    pelotas[i] = new Pelota();
+    cuadros[i] = new Cuadro();
+  }
 }
+
 function draw(){
-    background(120)
+  background(120);
 
-    for(let i = 0; i < NP ; i++ ){
-         pelotas[i].actualizar();
-         pelotas[i].visualizar();   
-    }
+  // actualizamos y dibujamos ambos arreglos en el mismo bucle
+  for(let i = 0; i < NP; i++){
+    pelotas[i].actualizar();
+    pelotas[i].visualizar();
 
+    cuadros[i].actualizar();
+    cuadros[i].visualizar();
+  }
 }
 /**
  * Function actualizar
